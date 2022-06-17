@@ -1,8 +1,8 @@
 <template>
-  <div class="m-4">
+  <div class="m-1">
     <img :src="product.image" style="max-width: 18rem" />
     <h3 class="fs-1 fw-bold pt-3">{{ product.name }}</h3>
-    <p class="description text-start">{{ product.description }}</p>
+    <p class="description text-start p-2">{{ product.description }}</p>
     <h3 c>{{ product.price.toFixed(2) }}€</h3>
 
     <div class="button-container">

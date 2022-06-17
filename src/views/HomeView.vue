@@ -1,15 +1,13 @@
 <template>
   <NavigationBar class="hide-arr" />
   <div class="bg-danger" v-if="error">{{ error }}</div>
-  <div class="row row-cols-2 row-cols-sm-2 m-1 g-4">
-    <keep-alive>
-      <ProductList
-        v-for="product in items"
-        :key="product.name"
-        :product="product"
-        @detail-product="detailProduct($event)"
-      />
-    </keep-alive>
+  <div class="row row-cols-2 ms-1 me-1 g-4">
+    <ProductList
+      v-for="product in items"
+      :key="product.name"
+      :product="product"
+      @detail-product="detailProduct($event)"
+    />
   </div>
 </template>
 

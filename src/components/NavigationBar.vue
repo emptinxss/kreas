@@ -1,10 +1,10 @@
 <template>
-  <nav class="navbar d-flex justify-content-between me-3 ms-3 mt-3">
+  <nav class="navbar d-flex justify-content-between me-3 ms-3 mt-3 h">
     <a href="/" class="navbar-brand font hide-brand">KREAS</a>
     <router-link to="/">
       <font-awesome-icon
         icon="arrow-left-long"
-        class="pb-2 hide-arrow arrow-color"
+        class="pb-2 hide-arrow arrow-color navbar-brand"
       />
     </router-link>
     <div>
@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 .font {
-  font-family: "Blanka", sans-serif;
+  font-family: "Anurati", sans-serif;
   font-size: 2rem;
   color: #2c3e50;
 }
@@ -51,5 +51,8 @@ export default {
 }
 .arrow-color {
   color: #2c3e50;
+}
+.h {
+  height: 75px;
 }
 </style>

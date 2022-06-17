@@ -16,8 +16,8 @@ export default {
 
 <style>
 @font-face {
-  font-family: "Blanka";
-  src: url("./assets/fonts/Blanka-Regular.otf");
+  font-family: "Anurati";
+  src: url("./assets/fonts/Anurati-Regular.otf");
 }
 html body {
   background: #e0deca;
