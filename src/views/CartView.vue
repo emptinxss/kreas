@@ -80,7 +80,6 @@ export default {
 <style>
 .modal-buy {
   max-width: 70%;
-  max-height: 30%;
 }
 
 .hide-logo-cart .hide-cart {

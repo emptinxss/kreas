@@ -20,6 +20,10 @@ const routes = [
     name: "cart",
     component: CartView,
   },
+  {
+    path: "/:catchAll(.*)",
+    redirect: "/",
+  },
 ];
 
 const router = createRouter({

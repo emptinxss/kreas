@@ -5,9 +5,9 @@
       <font-awesome-icon icon="arrow-left-long" class="pb-2 hide-arrow" />
     </router-link>
     <div>
-      <button class="btn btn-light position-relative hide-cart">
+      <button class="btn position-relative hide-cart">
         <router-link to="/cart">
-          <font-awesome-icon icon="cart-shopping" />
+          <font-awesome-icon icon="cart-shopping" class="cart-color" />
           <span
             v-if="product.length"
             class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-danger"
@@ -40,8 +40,11 @@ export default {
 
 <style scoped>
 .font {
-  font-family: "Anurati", sans-serif;
+  font-family: "Blanka", sans-serif;
   font-size: 2rem;
-  color: black;
+  color: #9eb23b;
+}
+.cart-color {
+  color: #9eb23b;
 }
 </style>

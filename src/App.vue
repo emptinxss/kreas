@@ -16,11 +16,11 @@ export default {
 
 <style>
 @font-face {
-  font-family: "Anurati";
-  src: url("./assets/fonts/Anurati-Regular.otf");
+  font-family: "Blanka";
+  src: url("./assets/fonts/Blanka-Regular.otf");
 }
 html body {
-  background: white;
+  background: #e0deca;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

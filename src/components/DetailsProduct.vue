@@ -7,7 +7,7 @@
 
     <div class="button-container">
       <button
-        class="btn btn-warning m-1"
+        class="btn-colora m-1"
         @click="
           addToCart();
           modal();
@@ -52,5 +52,8 @@ export default {
 .modal-add-to-cart {
   max-width: 70%;
   max-height: 30%;
+}
+.btn-colora {
+  background-color: #57be6c;
 }
 </style>

@@ -11,12 +11,12 @@
       }"
     >
       <div class="col">
-        <div class="card">
+        <div class="carda">
           <img :src="product.image" class="card-img-top" />
           <div class="card-body">
-            <h5 class="card-title fw-bold">{{ product.name }}</h5>
+            <h5 class="card-title fw-bold card-title">{{ product.name }}</h5>
 
-            <h5 class="fs-6">{{ product.price.toFixed(2) }} €</h5>
+            <h5 class="fs-6 card-price">{{ product.price.toFixed(2) }} €</h5>
           </div>
         </div>
       </div>
@@ -40,6 +40,16 @@ export default {
 <style>
 .link {
   text-decoration: none;
-  color: black;
+}
+.card-price {
+  color: #c7d36f;
+}
+.card-title {
+  color: #9eb23b;
+}
+.carda {
+  background: #fcf9c6;
+  border: 0px solid;
+  border-radius: 4px;
 }
 </style>
