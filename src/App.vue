@@ -1,0 +1,32 @@
+<template>
+  <router-view v-slot="{ Component }">
+    <keep-alive include="HomeView">
+      <component :is="Component" :key="$route.fullPath"></component>
+    </keep-alive>
+  </router-view>
+</template>
+
+<script>
+export default {
+  mounted() {
+    this.$store.commit("updateCartFromLocalStorage"); //carichiamo i dati dal localstorage
+  },
+};
+</script>
+
+<style>
+@font-face {
+  font-family: "Anurati";
+  src: url("./assets/fonts/Anurati-Regular.otf");
+}
+html body {
+  background: white;
+}
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+</style>
