@@ -21,6 +21,9 @@ export default createStore({
     cartTotal: (state) => {
       return state.cart.reduce((a, b) => a + b.price * b.quantity, 0);
     },
+    cartTotalQuantity: (state) => {
+      return state.cart.reduce((a, b) => a + b.quantity, 0);
+    },
     selectedItem: (state) => {
       return state.selectedProduct;
     },

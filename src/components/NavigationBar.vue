@@ -15,7 +15,7 @@
             v-if="product.length"
             class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-warning"
           >
-            {{ product.length }}
+            {{ quantity }}
           </span>
         </router-link>
       </button>
@@ -26,6 +26,7 @@
 <script>
 import store from "@/store";
 import { computed } from "@vue/runtime-core";
+
 export default {
   setup() {
     /* const product = store.state.cart; */
@@ -33,8 +34,13 @@ export default {
     const product = computed(() => {
       return store.getters.cartItems;
     });
+    const quantity = computed(() => {
+      return store.getters.cartTotalQuantity;
+    });
+    console.log(quantity.value);
     return {
       product,
+      quantity,
     };
   },
 };
