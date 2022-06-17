@@ -1,7 +1,7 @@
 <template>
   <div class="text-start" v-if="product">
     <router-link
-      class="link"
+      class="text-decoration-none"
       @click="$emit('detail-product', product)"
       :to="{
         name: 'details',
@@ -38,14 +38,11 @@ export default {
 </script>
 
 <style>
-.link {
-  text-decoration: none;
-}
 .card-price {
-  color: #c7d36f;
+  color: #9eb23b;
 }
 .card-title {
-  color: #9eb23b;
+  color: #2c3e50;
 }
 .carda {
   background: #fcf9c6;

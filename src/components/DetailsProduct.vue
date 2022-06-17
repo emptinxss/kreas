@@ -1,13 +1,13 @@
 <template>
   <div class="m-4">
     <img :src="product.image" style="max-width: 18rem" />
-    <h3 class="text-center">{{ product.name }}</h3>
-    <p class="description">{{ product.description }}</p>
-    <h3>{{ product.price.toFixed(2) }}€</h3>
+    <h3 class="fs-1 fw-bold pt-3">{{ product.name }}</h3>
+    <p class="description text-start">{{ product.description }}</p>
+    <h3 c>{{ product.price.toFixed(2) }}€</h3>
 
     <div class="button-container">
       <button
-        class="btn-colora m-1"
+        class="btn btn-warning mt-3 w-75"
         @click="
           addToCart();
           modal();

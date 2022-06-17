@@ -15,7 +15,7 @@
       </div>
       <div class="fs-3">
         <button
-          class="btn btn-primary mt-3 w-75"
+          class="btn btn-warning mt-3 w-75"
           @click="
             modal();
             removeCart();

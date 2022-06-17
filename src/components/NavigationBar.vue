@@ -2,7 +2,10 @@
   <nav class="navbar d-flex justify-content-between me-3 ms-3 mt-3">
     <a href="/" class="navbar-brand font hide-brand">KREAS</a>
     <router-link to="/">
-      <font-awesome-icon icon="arrow-left-long" class="pb-2 hide-arrow" />
+      <font-awesome-icon
+        icon="arrow-left-long"
+        class="pb-2 hide-arrow arrow-color"
+      />
     </router-link>
     <div>
       <button class="btn position-relative hide-cart">
@@ -10,13 +13,12 @@
           <font-awesome-icon icon="cart-shopping" class="cart-color" />
           <span
             v-if="product.length"
-            class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-danger"
+            class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-warning"
           >
             {{ product.length }}
           </span>
         </router-link>
       </button>
-      <!-- <font-awesome-icon icon="magnifying-glass" /> -->
     </div>
   </nav>
 </template>
@@ -42,9 +44,12 @@ export default {
 .font {
   font-family: "Blanka", sans-serif;
   font-size: 2rem;
-  color: #9eb23b;
+  color: #2c3e50;
 }
 .cart-color {
-  color: #9eb23b;
+  color: #2c3e50;
+}
+.arrow-color {
+  color: #2c3e50;
 }
 </style>

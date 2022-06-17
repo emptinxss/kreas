@@ -11,7 +11,7 @@
     <div class="d-flex justify-content-center row">
       <div class="col">
         <div
-          class="d-flex flex-row justify-content-between align-items-center p-2 bg-warning mt-4 rounded"
+          class="d-flex flex-row justify-content-between align-items-center p-2 mt-4"
         >
           <div class="mr-1">
             <img class="rounded" :src="product.image" width="70" />
