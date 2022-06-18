@@ -21,7 +21,7 @@ export default createStore({
     cartTotalDiscount: (state, getters) => {
       const total = state.cart.reduce((a, b) => a + b.price * b.quantity, 0);
       //sconto 10% 3+ products
-      if (getters.cartTotalQuantity > 2) return total - (total * 10) / 100;
+      if (getters.cartTotalQuantity > 3) return total - (total * 10) / 100;
       else return total;
     },
     cartTotal: (state) => {

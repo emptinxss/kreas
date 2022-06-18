@@ -8,8 +8,8 @@
       />
     </router-link>
     <div>
-      <button class="btn position-relative hide-cart">
-        <router-link to="/cart">
+      <router-link to="/cart">
+        <button class="btn position-relative hide-cart">
           <font-awesome-icon icon="cart-shopping" class="cart-color" />
           <span
             v-if="product.length"
@@ -17,8 +17,8 @@
           >
             {{ quantity }}
           </span>
-        </router-link>
-      </button>
+        </button>
+      </router-link>
     </div>
   </nav>
 </template>

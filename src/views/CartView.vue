@@ -13,7 +13,7 @@
       >
         Total:
         <div>
-          <div v-if="cartTotalQuantity > 2" class="">
+          <div v-if="cartTotalQuantity > 3" class="">
             <span class="fw-light text-decoration-line-through fs-6">
               {{ cartTotal }} €
             </span>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div v-if="products.length === 0">
-      <p>Your cart is empty</p>
+      <p>Your cart is empty.</p>
     </div>
   </div>
 </template>
