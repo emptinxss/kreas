@@ -10,7 +10,6 @@ import "bootstrap";
 //import fontAwesome
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
-  faMagnifyingGlass,
   faCartShopping,
   faArrowLeftLong,
   faTrashCan,
@@ -18,14 +17,7 @@ import {
   faMinus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(
-  faMagnifyingGlass,
-  faCartShopping,
-  faArrowLeftLong,
-  faTrashCan,
-  faPlus,
-  faMinus
-);
+library.add(faCartShopping, faArrowLeftLong, faTrashCan, faPlus, faMinus);
 
 createApp(App)
   .component("font-awesome-icon", FontAwesomeIcon)

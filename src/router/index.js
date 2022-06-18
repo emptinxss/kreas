@@ -26,6 +26,10 @@ const routes = [
     path: "/:catchAll(.*)",
     component: NotFound404,
   },
+  {
+    path: "/details/:catchAll(.*)",
+    component: NotFound404,
+  },
 ];
 
 const router = createRouter({

@@ -9,7 +9,7 @@
         The page you are looking for might have been removed had its name
         changed or is temporarily unavailable.
       </p>
-      <a href="/">Go To Homepage</a>
+      <a href="/" class="linke text-decoration-none">Go To Homepage</a>
     </div>
   </div>
 </template>
@@ -22,6 +22,7 @@ export default {};
 #notfound {
   position: relative;
   height: 100vh;
+  color: #2c3e50;
 }
 
 #notfound .notfound {
@@ -53,8 +54,6 @@ export default {};
 }
 
 .notfound h2 {
-  font-family: "Montserrat", sans-serif;
-  color: #000;
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
@@ -62,10 +61,12 @@ export default {};
 }
 
 .notfound p {
-  font-family: "Montserrat", sans-serif;
-  color: #000;
   font-size: 14px;
   font-weight: 400;
   margin: 2rem;
+}
+
+.linke {
+  color: #2c3e50;
 }
 </style>
