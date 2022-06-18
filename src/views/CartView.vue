@@ -8,14 +8,27 @@
       :product="product"
     />
     <div v-if="products.length">
-      <div>
-        <p class="fw-bold mb-0 mt-4 cart-total fs-3">
-          Total : {{ cartTotal }} €
-        </p>
+      <div
+        class="pe-4 ps-4 fw-bold mb-0 cart-total mt-4 fs-3 align-items-end d-flex flex-row justify-content-between"
+      >
+        Total:
+        <div>
+          <div v-if="cartTotalQuantity > 2" class="">
+            <span class="fw-light text-decoration-line-through fs-6">
+              {{ cartTotal }} €
+            </span>
+            <span
+              class="fw-light fs-6 bg-danger rounded p-1 ms-2 fw-bold text-light"
+              >-10%</span
+            >
+          </div>
+          {{ cartTotalDiscount }} €
+        </div>
       </div>
-      <div class="fs-3">
+
+      <div class="fs-3 pe-4 ps-4">
         <button
-          class="btn btn-warning mt-3 w-75"
+          class="btn btn-warning mt-3 w-100"
           @click="
             modal();
             removeCart();
@@ -46,8 +59,11 @@ export default {
       return this.$store.getters.cartItems; // prendiamo il cart dallo store
     },} */
   computed: {
+    cartTotalDiscount() {
+      return store.getters.cartTotalDiscount.toFixed(2); // prendiamo il cart dallo store
+    },
     cartTotal() {
-      return this.$store.getters.cartTotal.toFixed(2); // prendiamo il cart dallo store
+      return store.getters.cartTotal.toFixed(2); // prendiamo il cart dallo store
     },
   },
   methods: {
@@ -68,11 +84,14 @@ export default {
     const products = computed(() => {
       return store.getters.cartItems;
     });
+    const cartTotalQuantity = computed(() => {
+      return store.getters.cartTotalQuantity;
+    });
     const removeCart = () => {
       store.commit("removeCart"); //bisogna usare il commit per accedere ad una mutation dello store
     };
 
-    return { products, removeCart };
+    return { products, removeCart, cartTotalQuantity };
   },
 };
 </script>

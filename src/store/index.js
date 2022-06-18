@@ -18,6 +18,12 @@ export default createStore({
     cartItems: (state) => {
       return state.cart;
     },
+    cartTotalDiscount: (state, getters) => {
+      const total = state.cart.reduce((a, b) => a + b.price * b.quantity, 0);
+      //sconto 10% 3+ products
+      if (getters.cartTotalQuantity > 2) return total - (total * 10) / 100;
+      else return total;
+    },
     cartTotal: (state) => {
       return state.cart.reduce((a, b) => a + b.price * b.quantity, 0);
     },
@@ -53,7 +59,7 @@ export default createStore({
       updateLocalStorage(state.cart);
     },
     deleteFromCart(state, product) {
-      let item = state.cart.find((i) => i.name === product.name);
+      let item = state.cart.indexOf(product);
 
       if (item) {
         state.cart.splice(item, 1);
