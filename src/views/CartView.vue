@@ -9,7 +9,7 @@
     />
     <div v-if="products.length">
       <div
-        class="pe-4 ps-4 fw-bold mb-0 cart-total mt-4 fs-3 align-items-end d-flex flex-row justify-content-between"
+        class="pe-4 ps-4 fw-bold mb-0 cart-total mt-4 fs-3 align-items-end d-flex flex-row total"
       >
         Total:
         <div>
@@ -26,9 +26,9 @@
         </div>
       </div>
 
-      <div class="fs-3 pe-4 ps-4">
+      <div class="fs-3 pe-4 ps-4 custom">
         <button
-          class="btn btn-warning mt-3 w-100"
+          class="btn btn-warning mt-3 buy-button"
           @click="
             modal();
             removeCart();
@@ -106,5 +106,25 @@ export default {
 }
 .hide-logo-cart .hide-brand {
   display: none;
+}
+.buy-button {
+  width: 100%;
+}
+
+.total {
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 580px) {
+  .custom {
+    display: flex;
+    justify-content: end;
+  }
+  .buy-button {
+    width: 180px;
+  }
+  .total {
+    justify-content: end;
+  }
 }
 </style>

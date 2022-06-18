@@ -61,9 +61,8 @@ export default createStore({
     deleteFromCart(state, product) {
       let item = state.cart.indexOf(product);
 
-      if (item) {
-        state.cart.splice(item, 1);
-      }
+      state.cart.splice(item, 1);
+
       updateLocalStorage(state.cart);
     },
     updateCartFromLocalStorage(state) {

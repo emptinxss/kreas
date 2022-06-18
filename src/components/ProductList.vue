@@ -10,7 +10,7 @@
         },
       }"
     >
-      <div class="col">
+      <div class="col prova">
         <div class="carda">
           <img :src="product.image" class="card-img-top" />
           <div class="card-body">
@@ -48,5 +48,11 @@ export default {
   background: #fcf9c6;
   border: 0px solid;
   border-radius: 4px;
+}
+
+@media screen and (min-width: 1200px) {
+  .prova {
+    width: auto;
+  }
 }
 </style>

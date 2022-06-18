@@ -2,12 +2,12 @@
   <div class="m-1">
     <img :src="product.image" style="max-width: 18rem" />
     <h3 class="fs-1 fw-bold pt-3">{{ product.name }}</h3>
-    <p class="description text-start p-2">{{ product.description }}</p>
+    <p class="description p-2">{{ product.description }}</p>
     <h3 c>{{ product.price.toFixed(2) }}€</h3>
 
-    <div class="button-container">
+    <div class="">
       <button
-        class="btn btn-warning mt-3 w-75"
+        class="btn btn btn-warning mt-3 add-to-cart"
         @click="
           addToCart();
           modal();
@@ -53,7 +53,19 @@ export default {
   max-width: 70%;
   max-height: 30%;
 }
-.btn-colora {
-  background-color: #57be6c;
+.add-to-cart {
+  width: 50%;
+}
+.description {
+  text-align: start;
+}
+
+@media screen and (min-width: 580px) {
+  .add-to-cart {
+    width: 288px;
+  }
+  .description {
+    text-align: center;
+  }
 }
 </style>

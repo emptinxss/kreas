@@ -8,18 +8,18 @@
     <p>{{ description }}</p>
   </div> -->
   <div class="container">
-    <div class="d-flex justify-content-center row">
+    <div class="d-flex justify-content-center">
       <div class="col">
-        <div
-          class="d-flex flex-row justify-content-between align-items-center p-2 mt-4"
-        >
+        <div class="d-flex flex-row cart-items align-items-center p-2 mt-4">
           <div class="mr-1">
             <img class="rounded" :src="product.image" width="70" />
           </div>
-          <div class="d-flex flex-column align-items-center product-details">
+          <div
+            class="d-flex flex-column align-items-center product-details ms-md-4 me-md-4 sds"
+          >
             <span class="fw-bold">{{ product.name }}</span>
             <div class="d-flex flex-row">
-              <div class="d-flex flex-row align-items-center qty">
+              <div class="d-flex flex-row align-items-center">
                 <font-awesome-icon
                   icon="minus"
                   class="pe-3"
@@ -35,7 +35,7 @@
             </div>
           </div>
 
-          <div>
+          <div class="me-md-5">
             <h5 class="text-grey">{{ itemCost.toFixed(2) }} €</h5>
           </div>
           <div class="d-flex align-items-center">
@@ -95,5 +95,16 @@ export default {
 }
 .col {
   height: auto;
+}
+.cart-items {
+  justify-content: space-between;
+}
+@media screen and (min-width: 767px) {
+  .cart-items {
+    justify-content: center;
+  }
+  .sds {
+    width: 356px;
+  }
 }
 </style>
