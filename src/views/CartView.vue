@@ -7,38 +7,9 @@
       :key="product.name"
       :product="product"
     />
-    <div v-if="products.length">
-      <div
-        class="pe-4 ps-4 fw-bold mb-0 cart-total mt-4 fs-3 align-items-end d-flex flex-row total"
-      >
-        Total:
-        <div>
-          <div v-if="cartTotalQuantity > 3" class="">
-            <span class="fw-light text-decoration-line-through fs-6">
-              {{ cartTotal }} €
-            </span>
-            <span
-              class="fw-light fs-6 bg-danger rounded p-1 ms-2 fw-bold text-light"
-              >-10%</span
-            >
-          </div>
-          {{ cartTotalDiscount }} €
-        </div>
-      </div>
+    <CartPayment v-if="products.length" />
 
-      <div class="fs-3 pe-4 ps-4 custom">
-        <button
-          class="btn btn-warning mt-3 buy-button"
-          @click="
-            modal();
-            removeCart();
-          "
-        >
-          BUY
-        </button>
-      </div>
-    </div>
-    <div v-if="products.length === 0">
+    <div v-if="!products.length">
       <p>Your cart is empty.</p>
     </div>
   </div>
@@ -50,9 +21,10 @@ import NavigationBar from "@/components/NavigationBar.vue";
 import store from "@/store";
 import { computed } from "@vue/runtime-core";
 import swal from "sweetalert";
+import CartPayment from "@/components/CartPayment.vue";
 
 export default {
-  components: { CartProducts, NavigationBar },
+  components: { CartProducts, NavigationBar, CartPayment },
 
   /* computed: {
     products() {
