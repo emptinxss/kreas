@@ -7,11 +7,9 @@
   - [Vue](#Vue)
   - [Built with](#built-with)
 - [Getting started](#Getting-started)
-  - [Reccomended IDE Setup](#Reccomended-IDE-Setup)
-  - [Customize configuration](#Customize-configuration)
-- [Getting started](#Getting-started)
-  - [Compile and Hot-Reload for Development](#Compile-and-Hot-Reload-for-Development)
-  - [Compile and monifies for Production](#Compile-and-Minifies-for-Production)
+  - [Project setup](#project-setup)
+  - [Compile and Hot-Reload for Development](#compiles-and-hot-reloads-for-development)
+  - [Compile and minifies for Production](#Compiles-and-minifies-for-production)
   - [Lints and fixes files](#Lints-and-fixes-files)
 - [Links](#Links)
 - [License](#License)
@@ -32,7 +30,7 @@ It's good for practice with components and views, passing data to child and pare
 ### Built with
 
 - [Vue 3](https://vuejs.org/guide/introduction.html)
-- [Vue Cli](https://cli.vuejs.org/).
+- [Vue Cli](https://cli.vuejs.org/)
 - [Vuex](https://vuex.vuejs.org/)
 - [Vue router](https://router.vuejs.org/)
 - [Axios](https://axios-http.com/)
