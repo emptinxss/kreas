@@ -1,25 +1,21 @@
 <template>
   <NavigationBar class="hide-logo" />
-  <DetailsProduct
-    v-for="product in load"
-    :key="product.name"
-    :product="product"
-  />
+  <DetailsProduct v-for="product in load" :key="product" :product="product" />
 </template>
 
-<script>
+<script setup>
 import DetailsProduct from "@/components/DetailsProduct.vue";
 import NavigationBar from "@/components/NavigationBar.vue";
+import store from "@/store";
+import { computed, defineProps } from "vue";
 
-export default {
-  components: { DetailsProduct, NavigationBar },
-  props: ["name"],
-  setup() {
-    const load = JSON.parse(localStorage.getItem("selectedProducts"));
+defineProps({
+  name: String,
+});
 
-    return { load };
-  },
-};
+const load = computed(() => {
+  return store.getters.loadDetails;
+});
 </script>
 
 <style>

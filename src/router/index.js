@@ -17,6 +17,11 @@ const routes = [
     props: true,
   },
   {
+    path: "/details/:pathMatch(.*)*",
+    name: "NotFound404",
+    component: NotFound404,
+  },
+  {
     path: "/cart",
     name: "cart",
     component: CartView,
@@ -24,10 +29,7 @@ const routes = [
 
   {
     path: "/:catchAll(.*)",
-    component: NotFound404,
-  },
-  {
-    path: "/details/:catchAll(.*)",
+    name: "NotFound404",
     component: NotFound404,
   },
 ];

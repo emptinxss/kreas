@@ -1,12 +1,4 @@
 <template>
-  <!--   <div class="cart-item-card">
-    <div class="header">
-      <h3>{{ product.name }}</h3>
-      <h4>In Cart: {{ product.quantity }}</h4>
-      <h4>Total Cost: {{ itemCost.toFixed(2) }}</h4>
-    </div>
-    <p>{{ description }}</p>
-  </div> -->
   <div class="container">
     <div class="d-flex justify-content-center">
       <div class="col">
@@ -15,7 +7,7 @@
             <img class="rounded" :src="product.image" width="70" />
           </div>
           <div
-            class="d-flex flex-column align-items-center product-details ms-md-4 me-md-4 sds"
+            class="d-flex flex-column align-items-center product-details ms-md-4 me-md-4"
           >
             <span class="fw-bold">{{ product.name }}</span>
             <div class="d-flex flex-row">
@@ -23,20 +15,20 @@
                 <font-awesome-icon
                   icon="minus"
                   class="pe-3"
-                  @click="removeFromCart"
+                  @click="removeQuantity"
                 />
                 <h5 class="text-grey mt-1 mr-1 ml-1">{{ product.quantity }}</h5>
                 <font-awesome-icon
                   icon="plus"
                   class="ps-3"
-                  @click="addToCart"
+                  @click="addQuantity"
                 />
               </div>
             </div>
           </div>
 
           <div class="me-md-5">
-            <h5 class="text-grey">{{ itemCost.toFixed(2) }} €</h5>
+            <h5 class="mb-0">{{ itemCost.toFixed(2) }} €</h5>
           </div>
           <div class="d-flex align-items-center">
             <font-awesome-icon
@@ -51,51 +43,35 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["product"],
-  computed: {
-    itemCost() {
-      return this.product.price * this.product.quantity;
-    },
-    description() {
-      return this.product.description.substring(0, 120);
-    },
-  },
-  methods: {
-    addToCart() {
-      this.$store.commit("addToCart", this.product); //bisogna usare il commit per accedere ad una mutation dello store
-    },
-    removeFromCart() {
-      this.$store.commit("removeFromCart", this.product); //bisogna usare il commit per accedere ad una mutation dello store
-    },
-    deleteFromCart() {
-      this.$store.commit("deleteFromCart", this.product); //bisogna usare il commit per accedere ad una mutation dello store
-    },
-  },
+<script setup>
+import store from "@/store";
+import { defineProps } from "vue";
+import { computed } from "@vue/runtime-core";
+
+const props = defineProps({
+  product: Object,
+});
+
+const itemCost = computed(() => {
+  return props.product.price * props.product.quantity;
+});
+
+const addQuantity = () => {
+  store.commit("addQuantity", props.product);
+};
+const removeQuantity = () => {
+  store.commit("removeQuantity", props.product);
+};
+const deleteFromCart = () => {
+  store.commit("deleteFromCart", props.product);
 };
 </script>
 
 <style>
-.cart-item-card {
-  margin: 5%;
-  background: white;
-  box-shadow: 0 0 5px gray;
-  border-radius: 5px;
-  padding: 10px;
-  text-align: center;
-}
-
-.header {
-  display: flex;
-  justify-content: space-around;
-}
 .product-details {
   width: 7rem;
 }
-.col {
-  height: auto;
-}
+
 .cart-items {
   justify-content: space-between;
 }
@@ -103,7 +79,7 @@ export default {
   .cart-items {
     justify-content: center;
   }
-  .sds {
+  .product-details {
     width: 356px;
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar d-flex justify-content-between me-3 ms-3 mt-3 h">
+  <nav class="navbar nav">
     <a href="/" class="navbar-brand font hide-brand">KREAS</a>
     <router-link to="/">
       <font-awesome-icon
@@ -23,30 +23,25 @@
   </nav>
 </template>
 
-<script>
+<script setup>
 import store from "@/store";
 import { computed } from "@vue/runtime-core";
 
-export default {
-  setup() {
-    /* const product = store.state.cart; */
-
-    const product = computed(() => {
-      return store.getters.cartItems;
-    });
-    const quantity = computed(() => {
-      return store.getters.cartTotalQuantity;
-    });
-    console.log(quantity.value);
-    return {
-      product,
-      quantity,
-    };
-  },
-};
+const product = computed(() => {
+  return store.getters.cartItems;
+});
+const quantity = computed(() => {
+  return store.getters.cartTotalQuantity;
+});
 </script>
 
 <style scoped>
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 1rem 0 1rem;
+  height: 75px;
+}
 .font {
   font-family: "Anurati", sans-serif;
   font-size: 2rem;
@@ -57,8 +52,5 @@ export default {
 }
 .arrow-color {
   color: #2c3e50;
-}
-.h {
-  height: 75px;
 }
 </style>

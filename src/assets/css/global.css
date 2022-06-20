@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Anurati";
+  src: url("../fonts/Anurati.otf");
+}
+html body {
+  background: #e0deca;
+}

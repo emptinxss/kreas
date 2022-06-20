@@ -10,14 +10,12 @@
         },
       }"
     >
-      <div class="col prova">
-        <div class="carda">
-          <img :src="product.image" class="card-img-top" />
-          <div class="card-body">
-            <h5 class="card-title fw-bold card-title">{{ product.name }}</h5>
+      <div class="product-card">
+        <img :src="product.image" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title fw-bold card-title">{{ product.name }}</h5>
 
-            <h5 class="fs-6 card-price">{{ product.price.toFixed(2) }} €</h5>
-          </div>
+          <h5 class="fs-6 card-price">{{ product.price.toFixed(2) }} €</h5>
         </div>
       </div>
     </router-link>
@@ -31,9 +29,6 @@
 <script>
 export default {
   props: ["product"],
-  mounted() {
-    console.log("LISTA CARICATA");
-  },
 };
 </script>
 
@@ -44,15 +39,9 @@ export default {
 .card-title {
   color: #2c3e50;
 }
-.carda {
+.product-card {
   background: #fcf9c6;
   border: 0px solid;
   border-radius: 4px;
-}
-
-@media screen and (min-width: 1200px) {
-  .prova {
-    width: auto;
-  }
 }
 </style>

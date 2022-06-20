@@ -1,72 +1,43 @@
 <template>
-  <div id="notfound">
-    <div class="notfound">
-      <div class="notfound-404">
-        <h1>Oops!</h1>
-      </div>
+  <div class="not-found">
+    <div>
+      <h1 class="fw-bold">Oops!</h1>
+
       <h2>404 - Page not found</h2>
-      <p>
+      <p class="m-2">
         The page you are looking for might have been removed had its name
         changed or is temporarily unavailable.
       </p>
-      <a href="/" class="linke text-decoration-none">Go To Homepage</a>
+      <button class="btn btn-warning">
+        <a href="/" class="link-home">Back to Home</a>
+      </button>
     </div>
   </div>
 </template>
 
-<script>
-export default {};
-</script>
+<script></script>
 
 <style>
-#notfound {
-  position: relative;
+.not-found {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
   height: 100vh;
   color: #2c3e50;
 }
 
-#notfound .notfound {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.not-found h1 {
+  font-size: 7rem;
 }
 
-.notfound {
-  max-width: 410px;
-  width: 100%;
-  text-align: center;
-}
-
-.notfound .notfound-404 {
-  height: 142px;
-  position: relative;
-  z-index: -1;
-}
-
-.notfound .notfound-404 h1 {
-  font-size: 112px;
-  margin: 0px;
-  font-weight: 900;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.notfound h2 {
-  font-size: 24px;
+.not-found h2 {
+  font-size: 2srem;
   font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 0;
 }
 
-.notfound p {
-  font-size: 14px;
-  font-weight: 400;
-  margin: 2rem;
-}
-
-.linke {
+.link-home {
+  text-decoration: none;
   color: #2c3e50;
 }
 </style>

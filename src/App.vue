@@ -9,21 +9,16 @@
 <script>
 export default {
   mounted() {
-    this.$store.commit("updateCartFromLocalStorage"); //carichiamo i dati dal localstorage
+    this.$store.commit("updateCartFromLocalStorage");
   },
 };
 </script>
 
 <style>
-@font-face {
-  font-family: "Anurati";
-  src: url("./assets/fonts/Anurati-Regular.otf");
-}
-html body {
-  background: #e0deca;
-}
+@import "./assets/css/global.css";
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

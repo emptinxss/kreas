@@ -5,7 +5,7 @@
     <p class="description p-2">{{ product.description }}</p>
     <h3 c>{{ product.price.toFixed(2) }}€</h3>
 
-    <div class="">
+    <div>
       <button
         class="btn btn btn-warning mt-3 add-to-cart"
         @click="
@@ -19,53 +19,47 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import store from "@/store";
 import swal from "sweetalert";
+import { defineProps } from "vue";
 
-export default {
-  props: ["product"],
+const props = defineProps({
+  product: Object,
+});
 
-  methods: {
-    addToCart() {
-      this.$store.commit("addToCart", this.product); //bisogna usare il commit per accedere ad una mutation dello store
-    },
-
-    modal() {
-      swal({
-        text: "Added to cart!",
-        buttons: false,
-        timer: 1000,
-        icon: "info",
-        className: "modal-add-to-cart",
-      });
-    },
-  },
-  computed: {
-    product_total() {
-      return this.$store.getters.productQuantity(this.product); //va nello store  nel getter
-    },
-  },
+const addToCart = () => {
+  store.commit("addQuantity", props.product);
+};
+const modal = () => {
+  swal({
+    text: "Added to cart!",
+    buttons: false,
+    timer: 1000,
+    icon: "info",
+    className: "modal-add-to-cart",
+  });
 };
 </script>
 
 <style>
-.modal-add-to-cart {
-  max-width: 70%;
-  max-height: 30%;
+.description {
+  text-align: start;
 }
 .add-to-cart {
   width: 50%;
 }
-.description {
-  text-align: start;
+.modal-add-to-cart {
+  max-width: 70%;
+  max-height: 30%;
 }
 
 @media screen and (min-width: 580px) {
-  .add-to-cart {
-    width: 288px;
-  }
   .description {
     text-align: center;
+  }
+  .add-to-cart {
+    width: 288px;
   }
 }
 </style>

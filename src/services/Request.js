@@ -1,10 +1,7 @@
-import API from "./API"; // importiamo il file API
+import API from "./API";
 import { ref } from "@vue/reactivity";
 
 const getProducts = () => {
-  // GET REQUETS
-  // prendo l l ulr messo in API, con "/" gli diamo il percorso aggiuntivo
-
   const items = ref(null);
   const error = ref(null);
 

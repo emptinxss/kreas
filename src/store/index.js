@@ -1,17 +1,20 @@
 import { createStore } from "vuex";
-//funzione che metta in localstorage il carrello
+
 function updateLocalStorage(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
-
+function checkItem(state, product) {
+  const item = state.cart.find((i) => i.name === product.name);
+  return item;
+}
 export default createStore({
   state: {
-    cart: [], //sara un array
+    cart: [],
     selectedProduct: [],
   },
   getters: {
     productQuantity: (state) => (product) => {
-      const item = state.cart.find((i) => i.name === product.name); // se cè un id che è unguale all id di un prodotto lo aggiungi alla quantita se no nulla
+      const item = checkItem(state, product);
       if (item) return item.quantity;
       else return null;
     },
@@ -24,7 +27,7 @@ export default createStore({
       if (getters.cartTotalQuantity > 3) return total - (total * 10) / 100;
       else return total;
     },
-    cartTotal: (state) => {
+    cartTotalPrice: (state) => {
       return state.cart.reduce((a, b) => a + b.price * b.quantity, 0);
     },
     cartTotalQuantity: (state) => {
@@ -33,21 +36,24 @@ export default createStore({
     selectedItem: (state) => {
       return state.selectedProduct;
     },
+    loadDetails() {
+      return JSON.parse(localStorage.getItem("selectedProduct"));
+    },
   },
   mutations: {
-    addToCart(state, product) {
-      let item = state.cart.find((i) => i.name === product.name); //ceck sempre per id
+    addQuantity(state, product) {
+      const item = checkItem(state, product);
 
       if (item) {
-        item.quantity++; // se l idem cè aggiungi 1 alla quanitita
+        item.quantity++;
       } else {
-        state.cart.push({ ...product, quantity: 1 }); //se invece non cè nel cart lo metti dentro e setti 1 come quantitò perche ne aggiungiamo 1
+        state.cart.push({ ...product, quantity: 1 });
       }
 
       updateLocalStorage(state.cart);
     },
-    removeFromCart(state, product) {
-      let item = state.cart.find((i) => i.name === product.name);
+    removeQuantity(state, product) {
+      const item = checkItem(state, product);
 
       if (item) {
         if (item.quantity > 1) {
@@ -60,9 +66,7 @@ export default createStore({
     },
     deleteFromCart(state, product) {
       let item = state.cart.indexOf(product);
-
       state.cart.splice(item, 1);
-
       updateLocalStorage(state.cart);
     },
     updateCartFromLocalStorage(state) {
@@ -71,24 +75,17 @@ export default createStore({
         state.cart = JSON.parse(cart);
       }
     },
-    save(state, product) {
+    saveProduct(state, product) {
       if (state.selectedProduct.length > 0) {
         state.selectedProduct.shift();
       }
       state.selectedProduct.push(product);
       localStorage.setItem(
-        "selectedProducts",
+        "selectedProduct",
         JSON.stringify(state.selectedProduct)
       );
     },
-    updateDetails(state) {
-      const details = localStorage.getItem("seletedProduct");
-      if (details) {
-        state.selectedProduct = JSON.parse(details);
-      }
-      console.log("updateDetails");
-    },
-    removeCart(state) {
+    removeAllCart(state) {
       let item = state.cart;
       item.length = 0;
       updateLocalStorage(state.cart);
